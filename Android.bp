@@ -5,6 +5,7 @@
 soong_namespace {
     imports: [
         "hardware/qcom-caf/sm8150",
+        "hardware/qcom-caf/wlan",
         "vendor/qcom/opensource/display",
         "vendor/xiaomi/sm6125-common",
     ],
@@ -25121,6 +25122,39 @@ prebuilt_rfsa {
     owner: "xiaomi",
     src: "proprietary/vendor/lib/rfsa/adsp/misound_res.bin",
     relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+cc_prebuilt_binary {
+    name: "cnss-daemon",
+    owner: "xiaomi",
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/bin/cnss-daemon",
+            ],
+            shared_libs: [
+                "libcutils",
+                "liblog",
+                "libqmi_cci",
+                "libqmi_common_so",
+                "libnl",
+                "libcld80211",
+                "libperipheral_client",
+                "libmdmdetect",
+                "libqmiservices",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+    prefer: true,
     soc_specific: true,
 }
 

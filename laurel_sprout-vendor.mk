@@ -1078,5 +1078,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.fingerprintext@1.0 \
     vendor.qti.hardware.sensorscalibrate@1.0 \
     misound_res \
+    cnss-daemon \
     vendor.qti.hardware.sensorscalibrate@1.0-service \
     sensors.qti
